@@ -11,7 +11,7 @@ $client = new MongoDB\Client(
 
 $tb=$client->viento->viento;
 
-$filter= ['$eq'=>$a];
+$filter= ["departamento"=>['$eq'=>$a]];
 
 $rows = $tb->find($filter);
 $datos= iterator_to_array($rows);
