@@ -2,18 +2,14 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 //Variables de entrada
-$a=$_GET['anno'];
-$b=$_GET['represa'];
+/* $a=$_GET['anno'];
+$b=$_GET['represa']; */
 //--------------------------------------
 $client = new MongoDB\Client(
-    'mongodb+srv://yo:abc13579@cluster0.bosd3.mongodb.net/water?retryWrites=true&w=majority');
+    'mongodb+srv://andres:1234@cluster0.rjtat.mongodb.net/?retryWrites=true&w=majority');
 
-$tb=$client->water->Precipitaciones;
-$filter= ['$and'=>
-            [
-                ['ANNO'=>['$eq'=>$a]],
-                ['ESTACION'=>['$eq'=>$b]]
-            ]
+$tb=$client->viento->viento;
+$filter= [
         ];
 
 $rows = $tb->find($filter);
