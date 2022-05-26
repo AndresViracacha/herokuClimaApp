@@ -2,15 +2,16 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 //Variables de entrada
-/* $a=$_GET['anno'];
-$b=$_GET['represa']; */
+$a=$_GET['departamento'];
+
+/*$b=$_GET['represa']; */
 //--------------------------------------
 $client = new MongoDB\Client(
     'mongodb+srv://andres:1234@cluster0.rjtat.mongodb.net/?retryWrites=true&w=majority');
 
 $tb=$client->viento->viento;
-$filter= [
-        ];
+
+$filter= ['$eq'=>$a];
 
 $rows = $tb->find($filter);
 $datos= iterator_to_array($rows);
